@@ -6,9 +6,6 @@ function buildMetadata(sample) {
   var meta = `/metadata/${sample}`
   d3.json(meta).then(function(response){
     console.log(response)
-
-    var data = [response]
-    console.log(data)
   
     // Use d3 to select the panel with id of `#sample-metadata`
       var table = d3.select("#sample-metadata").html("")
@@ -35,6 +32,27 @@ function buildMetadata(sample) {
 function buildCharts(sample) {
 
   // @TODO: Use `d3.json` to fetch the sample data for the plots
+  var plotData = `/samples/${sample}`
+  d3.json(plotData).then(function(plotInfo){
+    console.log(plotInfo)
+
+    var pieChart = {
+      values: plotInfo.sample_values.slice(0,10),
+      labels: plotInfo.otu_ids.slice(0,10),
+      text: plotInfo.otu_labels.slice(0,10),
+      type: "pie"
+    };
+   var testP = [pieChart]
+
+   var pieLayout = {
+     height: 1500,
+     width: 1500
+   }
+   
+    Plotly.newPlot("pie", testP)
+
+
+  });
 
     // @TODO: Build a Bubble Chart using the sample data
 
