@@ -43,8 +43,9 @@ var degeeeScale = d3.scaleLinear()
 
 
 // Trig to calc meter point
-var degrees = 180 - degeeeScale(wfreq),
+var degrees = 180 - (wfreq*20),
      radius = .5;
+     console.log(degrees)
 var radians = degrees * Math.PI / 180;
 var x = radius * Math.cos(radians);
 var y = radius * Math.sin(radians);
@@ -64,8 +65,8 @@ var data = [{ type: 'scatter',
     
     text: wfreq,
     },
-  { values: [9/8, 9/8, 9/8, 9/8, 9/8, 9/8, 9/8, 9/8, 9],
-  rotation: 180,
+  { values: [90/9, 90/9, 90/9, 90/9, 90/9, 90/9, 90/9, 90/9, 90/9,90],
+  rotation: 90,
   text: ['8-9', '7-8', '6-7', '5-6',
             '4-5', '3-4', '2-3', '1-2', '0-1', ''],
   textinfo: 'text',
@@ -73,7 +74,8 @@ var data = [{ type: 'scatter',
   marker: {colors:['rgba(14, 127, 0, .5)', 'rgba(110, 154, 22, .5)',
                          'rgba(170, 202, 42, .5)', 'rgba(202, 209, 95, .5)',
                          'rgba(210, 206, 145, .5)', 'rgba(232, 226, 202, .5)',
-                         'rgba(255, 255, 255, 0)']},
+                         'rgba(240, 232, 218, .5)',
+                         'rgba(255, 255, 255, 0)',  '0,0,0,0']},
   labels: ['9-8', '8-7', '7-6', '6-5', '5-4', '4-3', '3-2', '2-1', '1-0', ''],
   hoverinfo: 'label',
   hole: .5,
