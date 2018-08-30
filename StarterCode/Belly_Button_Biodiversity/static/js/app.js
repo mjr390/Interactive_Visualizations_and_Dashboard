@@ -39,17 +39,17 @@ function buildCharts(sample) {
     var pieChart = {
       values: plotInfo.sample_values.slice(0,10),
       labels: plotInfo.otu_ids.slice(0,10),
-      text: plotInfo.otu_labels.slice(0,10),
+      hoverinfo: plotInfo.otu_labels.slice(0,10),
       type: "pie"
     };
    var testP = [pieChart]
 
    var pieLayout = {
-     height: 1500,
-     width: 1500
+     height: 600,
+     width: 600
    }
    
-    Plotly.newPlot("pie", testP)
+    Plotly.newPlot("pie", testP, pieLayout)
 
 
   });
