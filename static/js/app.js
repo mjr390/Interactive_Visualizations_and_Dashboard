@@ -115,15 +115,19 @@ function buildCharts(sample) {
     var pieChart = {
       values: plotInfo.sample_values.slice(0,10),
       labels: plotInfo.otu_ids.slice(0,10),
-      hoverinfo: plotInfo.otu_labels.slice(0,10),
-      text: plotInfo.otu_labels.slice(0,10),
+      // hoverinfo: plotInfo.otu_labels.slice(0,10),
+      hovertext: plotInfo.otu_labels.slice(0,10),
       type: "pie"
     };
    var testP = [pieChart]
-
+    console.log("changed here")
    var pieLayout = {
-     height: 400,
-     width: 400
+     height: 450,
+     width: 450,
+    // margin: {
+    //   t: 0,
+    //   l: 0
+    // }
    }
    
     Plotly.newPlot("pie", testP, pieLayout)
@@ -138,7 +142,7 @@ function buildCharts(sample) {
       },
       text: plotInfo.otu_labels
     };
-    Plotly.newPlot("bubble", [bubbleChart])
+    Plotly.newPlot("bubble", [bubbleChart]) 
 
 
   });
